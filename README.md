@@ -1,6 +1,6 @@
 # Advent Of Code :evergreen_tree: ![Last Commit on GitHub](https://img.shields.io/badge/last%20commit-2021--12--04-brightgreen)
 
-[Advent of Code](https://adventofcode.com/) solutions, primarily with the aim of flexing some Scala muscle. The focus is on writing __clean__, and as close to __pure functional__ code, with zero side-effects, as possible. A lot of solutions therefore deliberately introduce explicit types, and instead of aiming to be super-concise, break the problem down into cleaner functions that build to a solution.
+[Advent of Code 2021](https://adventofcode.com/) solutions, primarily with the aim of flexing some Scala muscle. The focus is on writing __clean__, and as close to __pure functional__ code, with zero side-effects, as possible. A lot of solutions therefore deliberately introduce explicit types, and instead of aiming to be super-concise, break the problem down into cleaner functions that build to a solution.
 
 
 <div align="center">
