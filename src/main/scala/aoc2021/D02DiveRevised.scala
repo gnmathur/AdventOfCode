@@ -6,7 +6,7 @@ import scala.util.{Failure, Success}
 
 object D02DiveRevised extends App {
   // Direction type in a command
-  sealed trait Direction
+  sealed trait Direction extends Product with Serializable
   case object Forward extends Direction
   case object Down extends Direction
   case object Up extends Direction

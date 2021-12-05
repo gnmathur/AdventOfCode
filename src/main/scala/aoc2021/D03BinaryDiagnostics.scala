@@ -2,31 +2,102 @@ package aoc2021
 
 import aoc2021.utils.FileOperations
 
+import scala.annotation.tailrec
 import scala.collection.mutable
 import scala.util.{Failure, Success}
+
+private object P1Solution {
+  import D03BinaryDiagnostics._
+
+  // Derive gamma and epsilon rates from a bit frequency map
+  private def getRate(fm: mutable.Map[BitPosition, (ZeroCount, OneCount)], comparison: (ZeroCount, OneCount) => Boolean): Int = {
+    // Iterate over the map in bit position order. The map is converted to a list that can be sorted by the key,
+    // to enable this iteration. For each bit position, starting from bit position 1, decide whether to choose
+    // a bit 0 representation, or a bit 1 representation
+    val binary = fm.toSeq.sortBy(x => x._1).map {
+      case (a: BitPosition, b: (ZeroCount, OneCount)) => if (comparison(b._1, b._2)) 0 else 1
+    }
+    Integer.parseInt(binary.mkString(""), 2)
+  }
+
+  private def getGammaRate(fm: mutable.Map[BitPosition, (ZeroCount, OneCount)]): Int = {
+    getRate(fm, (zc: ZeroCount, oc: OneCount) => zc > oc)
+  }
+
+  private def getEpsilonRate(fm: mutable.Map[BitPosition, (ZeroCount, OneCount)]): Int = {
+    getRate(fm, (zc: ZeroCount, oc: OneCount) => zc < oc)
+  }
+
+  /**
+   * Solve the problem
+   *
+   * @param report A collection with Strings of 5 characters each
+   * @return The tuple <gamma, epsilon, power consumption>
+   */
+  def solve(report: List[String]): (Int, Int, Int) = {
+    val fm = getFreqMap(report)
+    val ga = getGammaRate(fm)
+    val ep = getEpsilonRate(fm)
+    (ga, ep, ga * ep)
+  }
+}
+
+private object P2Solution {
+  import D03BinaryDiagnostics._
+
+  // Successively whittle the report list, by examining successive bit positions. Reduce the report till
+  // only a single number remains
+  private def getRating(report: List[String], compareWithCharFn: (ZeroCount, OneCount) => Char): Int = {
+
+    // Filter out report numbers that fail to match the bit value in <bitPosition> with what's determined by
+    // the bit value determined by <compareWithCharFn>
+    @tailrec
+    def _get02Rating(reducedReport: List[String], bitPosition: BitPosition): Int = {
+      if (reducedReport.size > 1) {
+        // Determine frequency of zero and one bit in each column position
+        val fm = getFreqMap(reducedReport).toSeq.sortBy(_._1)
+
+        _get02Rating(
+          reducedReport.filter { s =>
+            val bitFreq = fm(bitPosition)
+            val bitToCompare = compareWithCharFn(bitFreq._2._1, bitFreq._2._2)
+            val bitAtPosition = s.charAt(bitFreq._1)
+            (bitAtPosition == bitToCompare)
+          },
+          bitPosition + 1)
+      } else {
+        Integer.parseInt(reducedReport.head, 2)
+      }
+    }
+    _get02Rating(report, 0)
+  }
+
+  private def getO2Rating(report: List[String]): Int = {
+    getRating(report, (zc: ZeroCount, oc: OneCount) => if (oc >= zc) '1' else '0')
+  }
+
+  private def getCO2Rating(report: List[String]): Int = {
+    getRating(report, (zc: ZeroCount, oc: OneCount) => if (zc <= oc) '0' else '1')
+  }
+
+  /**
+   * Solve the problem
+   *
+   * @param report A collection with Strings of 5 characters each
+   * @return The tuple <Oxygen generator rating, CO2 scrubber rating, Life support rating>
+   */
+  def solve(report: List[String]): (BitPosition, BitPosition, BitPosition) = {
+    val o2Rating = getO2Rating(report)
+    val co2Rating = getCO2Rating(report)
+    (o2Rating, co2Rating, o2Rating*co2Rating)
+  }
+}
 
 object D03BinaryDiagnostics extends App {
   // Types to represent frequency count of a bit in a bit position (column in the report)
   type ZeroCount = Int
   type OneCount = Int
-
-  // A type to represent a bit position in a report line
-  sealed case class BitPosition(pos: Int)
-  implicit object BitPositionOrdering extends Ordering[BitPosition] {
-    override def compare(x: BitPosition, y: BitPosition): Int = x.pos - y.pos
-  }
-  val BP1 = BitPosition(1)
-  val BP2 = BitPosition(2)
-  val BP3 = BitPosition(3)
-  val BP4 = BitPosition(4)
-  val BP5 = BitPosition(5)
-  val BP6 = BitPosition(6)
-  val BP7 = BitPosition(7)
-  val BP8 = BitPosition(8)
-  val BP9 = BitPosition(9)
-  val BP10 = BitPosition(10)
-  val BP11 = BitPosition(11)
-  val BP12 = BitPosition(12)
+  type BitPosition = Int
 
   /**
    * Parse the report and create a frequency count for 0 and 1 bits in each or the report columns
@@ -34,7 +105,7 @@ object D03BinaryDiagnostics extends App {
    * @param report A collection with a String of N bit values each
    * @return A bit frequency count per column (BitPosition)
    */
-  private def getFreqMap(report: List[String])= {
+  def getFreqMap(report: List[String]): mutable.Map[BitPosition, (ZeroCount, OneCount)] = {
     val bitCounterMap = mutable.Map[BitPosition, (ZeroCount, OneCount)]()
 
     def updateMapForBitPosition(ch: Char, bp: BitPosition) = {
@@ -46,60 +117,17 @@ object D03BinaryDiagnostics extends App {
     report.map {
       num =>
         num.zipWithIndex.map {
-          case (ch, chIndex) => chIndex match {
-            case 0 => updateMapForBitPosition(ch, BP1)
-            case 1 => updateMapForBitPosition(ch, BP2)
-            case 2 => updateMapForBitPosition(ch, BP3)
-            case 3 => updateMapForBitPosition(ch, BP4)
-            case 4 => updateMapForBitPosition(ch, BP5)
-            case 5 => updateMapForBitPosition(ch, BP6)
-            case 6 => updateMapForBitPosition(ch, BP7)
-            case 7 => updateMapForBitPosition(ch, BP8)
-            case 8 => updateMapForBitPosition(ch, BP9)
-            case 9 => updateMapForBitPosition(ch, BP10)
-            case 10 => updateMapForBitPosition(ch, BP11)
-            case 11 => updateMapForBitPosition(ch, BP12)
-          }
+          case (ch, chIndex) => updateMapForBitPosition(ch, chIndex)
         }
     }
     bitCounterMap
   }
 
-  // Derive gamma and epsilon rates from a bit frequency map
-  def getRate(fm: mutable.Map[BitPosition, (ZeroCount, OneCount)], comparison: (ZeroCount, OneCount) => Boolean) = {
-    // Iterate over the map in bit position order. The map is converted to a list that can be sorted by the key,
-    // to enable this iteration. For each bit position, starting from bit position 1, decide whether to choose
-    // a bit 0 representation, or a bit 1 representation
-    val binary = fm.toSeq.sortBy(x => x._1).map {
-      case (a: BitPosition, b: (ZeroCount, OneCount)) => if (comparison(b._1, b._2)) 0 else 1
-    }
-    Integer.parseInt(binary.mkString(""), 2 )
-  }
-  def getGammaRate(fm: mutable.Map[BitPosition, (ZeroCount, OneCount)]) = {
-    getRate(fm, (zc: ZeroCount, oc: OneCount) => zc > oc)
-  }
-  def getEpsilonRate(fm: mutable.Map[BitPosition, (ZeroCount, OneCount)]) = {
-    getRate(fm, (zc: ZeroCount, oc: OneCount) => zc < oc)
-  }
-
-  /**
-   * Solve the problem
-   *
-   * @param report A collection with Strings of 5 characters each
-   * @return The tuple <gamma, epsilon, power consumption>
-   */
-  def solve(report: List[String]) = {
-    val fm = getFreqMap(report)
-    val ga = getGammaRate(fm)
-    val ep = getEpsilonRate(fm)
-    (ga, ep, ga*ep)
-  }
-
-  // - Test Case -
+  // - Test case for part 1 -
   FileOperations
-    .readVectorFromFile("src/main/resources/D03P1TestInput.txt") match {
+    .readVectorFromFile("src/main/resources/D03TestInput.txt") match {
     case Success(testVector) => {
-      val (ga, ep, powerc) = solve(testVector)
+      val (ga, ep, powerc) = P1Solution.solve(testVector)
       assert(22 == ga)
       assert(9 == ep)
       assert(198 == powerc)
@@ -107,14 +135,38 @@ object D03BinaryDiagnostics extends App {
     case Failure(exception) => println("error parsing test input")
   }
 
-  // - Problem Solution -
+  // - Solution for part 1-
   FileOperations
-    .readVectorFromFile("src/main/resources/D03P1Input.txt") match {
+    .readVectorFromFile("src/main/resources/D03Input.txt") match {
     case Success(testVector) => {
-      val (ga, ep, powerc) = solve(testVector)
+      val (ga, ep, powerc) = P1Solution.solve(testVector)
       assert(1616 == ga)
       assert(2479 == ep)
       assert(4006064 == powerc)
+    }
+    case Failure(exception) => println("error parsing test input")
+  }
+
+  // -- Test case for part 2
+  FileOperations
+    .readVectorFromFile("src/main/resources/D03TestInput.txt") match {
+    case Success(testVector) => {
+      val (o2rating, co2Rating, lifeSupportRating) = P2Solution.solve(testVector)
+      assert(23 == o2rating)
+      assert(10 == co2Rating)
+      assert(230 == lifeSupportRating)
+    }
+    case Failure(exception) => println("error parsing test input")
+  }
+
+  // -- Solution for part2
+  FileOperations
+    .readVectorFromFile("src/main/resources/D03Input.txt") match {
+    case Success(testVector) => {
+      val (o2rating, co2Rating, lifeSupportRating) = P2Solution.solve(testVector)
+      assert(1599 == o2rating)
+      assert(3716 == co2Rating)
+      assert(5941884 == lifeSupportRating)
     }
     case Failure(exception) => println("error parsing test input")
   }

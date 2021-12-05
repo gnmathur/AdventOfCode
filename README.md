@@ -7,8 +7,9 @@
 
   | Day | Solutions |
   |:---:|:---:|
-  | [D1](https://adventofcode.com/2021/day/1) | [Part1](src/main/scala/aoc2021/D01SonarSweep.scala)<br>[Part2](src/main/scala/aoc2021/D01SonarSweepSlidingWindow.scala) |
-  | [D2](https://adventofcode.com/2021/day/2) | [Part2](src/main/scala/aoc2021/D02Dive.scala)<br>[Part2](src/main/scala/aoc2021/D02DiveRevised.scala) |
+  | [D1](https://adventofcode.com/2021/day/1) | [Part 1](src/main/scala/aoc2021/D01SonarSweep.scala)<br>[Part 2](src/main/scala/aoc2021/D01SonarSweepSlidingWindow.scala) |
+  | [D2](https://adventofcode.com/2021/day/2) | [Part 1](src/main/scala/aoc2021/D02Dive.scala)<br>[Part 2](src/main/scala/aoc2021/D02DiveRevised.scala) |
+  | [D3](https://adventofcode.com/2021/day/3) | [Part 1 & 2](src/main/scala/aoc2021/D03BinaryDiagnostics.scala)) |
 
 </div>
 
