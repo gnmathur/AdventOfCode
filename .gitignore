@@ -1,6 +1,5 @@
 # sbt
-project/project/
-project/target/
+/project/target/
 target/
 
 # intellij idea
