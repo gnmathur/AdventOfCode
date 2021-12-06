@@ -10,10 +10,11 @@
   | [D1](https://adventofcode.com/2021/day/1) | [Part 1](src/main/scala/aoc2021/D01SonarSweep.scala)<br>[Part 2](src/main/scala/aoc2021/D01SonarSweepSlidingWindow.scala) |
   | [D2](https://adventofcode.com/2021/day/2) | [Part 1](src/main/scala/aoc2021/D02Dive.scala)<br>[Part 2](src/main/scala/aoc2021/D02DiveRevised.scala) |
   | [D3](https://adventofcode.com/2021/day/3) | [Part 1 & 2](src/main/scala/aoc2021/D03BinaryDiagnostics.scala) |
-  | [D4](https://adventofcode.com/2021/day/4) | [Part 1](src/main/scala/aoc2021/D04GiantSquid.scala) |
+  | [D4](https://adventofcode.com/2021/day/4) | [Part 1](src/main/scala/aoc2021/D04GiantSquid.scala)<br>[Part 2](src/main/scala/aoc2021/D04GiantSquid.scala) |
 
 </div>
 
 All credit to the authors for the problems. They are reproduced in this repository merely to have a description proximiate to the solutions
 
 <img align="right" src=https://www.scala-lang.org/resources/img/frontpage/scala-spiral.png height="30px" style="padding-left: 20px"/>
+src/main/scala/aoc2021/D04GiantSquid.scala
