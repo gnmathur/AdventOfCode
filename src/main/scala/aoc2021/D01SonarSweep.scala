@@ -14,14 +14,14 @@ object D01SonarSweep extends App {
 
   // -- Test Case --
   FileOperations
-    .readIntVectorFromFile("src/main/resources/D01P1TestInput.txt") match {
+    .readIntInputFromFile("src/main/resources/D01P1TestInput.txt") match {
     case Success(testVector) => assert(7 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
     }
 
   // -- Problem Input --
   FileOperations
-    .readIntVectorFromFile("src/main/resources/D01P1Input.txt") match {
+    .readIntInputFromFile("src/main/resources/D01P1Input.txt") match {
     case Success(testVector) => assert(1233 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }

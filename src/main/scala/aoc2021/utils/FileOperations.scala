@@ -8,15 +8,15 @@ import scala.util.{Failure, Success, Try}
 
 object FileOperations {
 
-  def readVectorFromFile(filePath: String) : Try[List[String]] = {
+  def readStringInputFromFile(filePath: String) : Try[List[String]] = {
     Try {
       val f: BufferedReader = Files.newBufferedReader(Paths.get(filePath), Charset.forName("UTF-8"))
       f.lines().toScala(Iterator).toList
     }
   }
 
-  def readIntVectorFromFile(filePath: String): Try[List[Int]] = {
-    readVectorFromFile(filePath) match {
+  def readIntInputFromFile(filePath: String): Try[List[Int]] = {
+    readStringInputFromFile(filePath) match {
       case Success(value) => Try {
         value.map {
           line => Integer.parseInt(line)

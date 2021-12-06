@@ -52,14 +52,14 @@ object D02DiveRevised extends App {
   val start = System.currentTimeMillis()
   // - Test case -
   FileOperations
-    .readVectorFromFile("src/main/resources/D02P1TestInput.txt") match {
+    .readStringInputFromFile("src/main/resources/D02P1TestInput.txt") match {
     case Success(testVector) => assert(900 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }
 
   // - Problem solution -
   FileOperations
-    .readVectorFromFile("src/main/resources/D02P1Input.txt") match {
+    .readStringInputFromFile("src/main/resources/D02P1Input.txt") match {
     case Success(testVector) => assert(1880593125 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }

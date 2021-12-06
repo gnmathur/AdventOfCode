@@ -18,14 +18,14 @@ object D01SonarSweepSlidingWindow extends App {
 
   //
   FileOperations
-    .readIntVectorFromFile("src/main/resources/D01P2TestInput.txt") match {
+    .readIntInputFromFile("src/main/resources/D01P2TestInput.txt") match {
     case Success(testVector) => assert(5 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }
 
   // -- Problem Input --
   FileOperations
-    .readIntVectorFromFile("src/main/resources/D01P2Input.txt") match {
+    .readIntInputFromFile("src/main/resources/D01P2Input.txt") match {
     case Success(testVector) => assert(1275 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }
