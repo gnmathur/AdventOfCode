@@ -17,4 +17,3 @@
 All credit to the authors for the problems. They are reproduced in this repository merely to have a description proximiate to the solutions
 
 <img align="right" src=https://www.scala-lang.org/resources/img/frontpage/scala-spiral.png height="30px" style="padding-left: 20px"/>
-src/main/scala/aoc2021/D04GiantSquid.scala
