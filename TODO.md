@@ -1,3 +1,4 @@
-* Create a test case harness (perhaps utilizing ScalaTest) that can take a day, test input and expected output and runs all the solutions (incl. the tests)
-* Capture performance of each solution
-* Run SBT build and run on each commit
+- [ ] Create a test case harness (perhaps utilizing ScalaTest) that can take a day, test input and expected output and runs all the solutions (incl. the tests)
+- [ ] Capture performance of each solution 
+- [ ] Run SBT build and run on each commit
+- [ ] D04GiantSquid P2 Solution - Remove need of using ListBuffer; Run through all drawn numbers even after all boards have been solved
