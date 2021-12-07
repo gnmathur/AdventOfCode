@@ -50,9 +50,7 @@ object D05HydrothermalVenture extends App {
   }
 
   private def findOverlapCount(g: Array[Array[Int]]): Int = {
-    g.foldLeft(0) { (acc, row: Array[Int]) =>
-      row.foldLeft(acc) { (acc, ele) => if (ele >= 2) acc + 1 else acc }
-    }
+    g.flatten.foldLeft(0) { (acc, ele) => if (ele >= 2) acc + 1 else acc }
   }
 
   def run(filePath: String): Int = {
