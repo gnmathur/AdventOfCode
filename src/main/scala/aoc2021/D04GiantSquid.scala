@@ -94,7 +94,7 @@ object D04GiantSquid extends App {
     r.foldLeft(0)((acc, cell) => acc + cell.num)
   }
 
-  // Check row or column for a win.
+  // Check row or column for a win, and compute the solution on the winning board
   def checkForWinAndCompute(b: Board): Option[Int] = {
     checkBoardForWin(b).map(board => compute(board))
   }
