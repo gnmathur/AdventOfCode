@@ -1,6 +1,11 @@
 # Advent Of Code :evergreen_tree: ![Last Commit on GitHub](https://img.shields.io/badge/last%20commit-2021--12--04-brightgreen)
 
-[Advent of Code 2021](https://adventofcode.com/) solutions, primarily with the aim of flexing some Scala muscle. The focus is on writing __clean__, and as close to __pure functional__ code, with zero side-effects, as possible. A lot of solutions therefore deliberately introduce explicit types, and instead of aiming to be super-concise, break the problem down into cleaner functions that build to a solution.
+[Advent of Code 2021](https://adventofcode.com/) solutions, primarily with the aim of building some Scala muscle. The 
+focus is on writing __clean__, and as close to __pure functional__ code, with zero side-effects, and use of mutable state,
+where possible. I will chose to use mutable state where its pragmatic and a pure functional solution requires too much
+gymnastics and has a chance of making the code too non-performant. A lot of solutions therefore deliberately introduce 
+explicit types, and instead of aiming to be super-concise, break the problem down into cleaner functions that build to 
+a solution, and sometimes use mutable arrays etc.
 
 
 <div align="center">
@@ -11,9 +16,10 @@
   | [D2](https://adventofcode.com/2021/day/2) | [Part 1](src/main/scala/aoc2021/D02Dive.scala)<br>[Part 2](src/main/scala/aoc2021/D02DiveRevised.scala) |
   | [D3](https://adventofcode.com/2021/day/3) | [Part 1 & 2](src/main/scala/aoc2021/D03BinaryDiagnostics.scala) |
   | [D4](https://adventofcode.com/2021/day/4) | [Part 1](src/main/scala/aoc2021/D04GiantSquid.scala) |
+  | [D5](https://adventofcode.com/2021/day/5) | [Part 1](src/main/scala/aoc2021/D04HydrothermalVenture.scala) |
 
 </div>
 
-All credit to the authors for the problems. They are reproduced in this repository merely to have a description proximiate to the solutions
+All credit to the authors for the problems. They are reproduced in this repository merely to have a description proximate to the solutions
 
 <img align="right" src=https://www.scala-lang.org/resources/img/frontpage/scala-spiral.png height="30px" style="padding-left: 20px"/>
