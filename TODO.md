@@ -2,4 +2,5 @@
 - [ ] Capture performance of each solution 
 - [ ] Run SBT build and run on each commit
 - [ ] D04GiantSquid P2 Solution - Remove need of using ListBuffer; Run through all drawn numbers even after all boards have been solved
-- [ ] D05HydrothermalVenture - Complete Part 2; Cleanup Part 1
+- [x] D05HydrothermalVenture - Complete Part 2
+- [ ] D05HydrothermalVenture - Cleanup Part 1 and Part 2; Refactor to remove cyclic imports 

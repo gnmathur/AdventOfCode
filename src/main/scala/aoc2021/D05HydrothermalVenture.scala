@@ -5,28 +5,70 @@ import java.nio.charset.Charset
 import java.nio.file.{Files, Paths}
 import scala.jdk.StreamConverters.StreamHasToScala
 
+private object D5P1 {
+  import D05HydrothermalVenture._
+
+  def solve(g: Array[Array[Int]], parsed: List[Line]): Int = {
+    D05HydrothermalVenture.markVents(g, parsed, getPointsOnLine)
+    D05HydrothermalVenture.findOverlapCount(g)
+  }
+}
+
+private object D5P2 {
+  import D05HydrothermalVenture._
+
+  def solve(g: Array[Array[Int]], parsed: List[Line]): Int = {
+    D05HydrothermalVenture.markVents(g, parsed, getPointsOnLineEnh)
+    D05HydrothermalVenture.findOverlapCount(g)
+  }
+}
+
+
 object D05HydrothermalVenture extends App {
   case class Coor(col: Int, row: Int)
   case class Line(a: Coor, b: Coor)
   type Vents = Array[Array[Int]]
 
+  def getPointsOnLineEnh(input: Line): List[Coor] = {
+    val x1 = input.a.col
+    val y1 = input.a.row
+    val x2 = input.b.col
+    val y2 = input.b.row
+
+    if ((x1 == x2) || (y1 == y2)) {
+      getPointsOnLine(input)
+    } else {
+      (
+        (x1 to(x2, if (x1 < x2) 1 else -1)) zip
+          (y1 to(y2, if (y1 < y2) 1 else -1)) map { ele =>
+          Coor(ele._1, ele._2)
+        }
+      ).toList
+    }
+  }
+
   def getPointsOnLine(input: Line): List[Coor] = {
-    if (input.a.col == input.b.col) {
-      val start = if (input.a.row < input.b.row) input.a.row else input.b.row
-      val end = if (input.a.row > input.b.row) input.a.row else input.b.row
-      (start to end).map(y => Coor(input.a.col, y)).toList
-    } else if (input.a.row == input.b.row) {
-      val start = if (input.a.col < input.b.col) input.a.col else input.b.col
-      val end = if (input.a.col > input.b.col) input.a.col else input.b.col
-      (start to end).map(x => Coor(x, input.a.row)).toList
+    val x1 = input.a.col
+    val y1 = input.a.row
+    val x2 = input.b.col
+    val y2 = input.b.row
+
+    if (x1 == x2) {
+      val start = if (y1 < y2) y1 else y2
+      val end = if (y1 > y2) y1 else y2
+      (start to end).map(y => Coor(x1, y)).toList
+    } else if (y1 == y2) {
+      val start = if (x1 < x2) x1 else x2
+      val end = if (x1 > x2) x1 else x2
+      (start to end).map(x => Coor(x, y1)).toList
     } else {
       List.empty
     }
   }
 
-  private def markVents(g: Vents, input: List[Line]): Unit = {
+  def markVents(g: Vents, input: List[Line], pointsFn: Line => List[Coor]): Unit = {
     input.foreach {line =>
-      val points = getPointsOnLine(line)
+      val points = pointsFn(line)
       points.foreach { point: Coor =>
         g(point.row)(point.col) = g(point.row)(point.col) + 1
       }
@@ -49,20 +91,23 @@ object D05HydrothermalVenture extends App {
     Line(Coor(intCoors(0), intCoors(1)), Coor(intCoors(2), intCoors(3)))
   }
 
-  private def findOverlapCount(g: Array[Array[Int]]): Int = {
+  def findOverlapCount(g: Array[Array[Int]]): Int = {
     g.flatten.foldLeft(0) { (acc, ele) => if (ele >= 2) acc + 1 else acc }
   }
 
-  def run(filePath: String): Int = {
+  def run(filePath: String, solve: (Array[Array[Int]], List[Line]) => Int): Int = {
     val f: BufferedReader = Files.newBufferedReader(Paths.get(filePath), Charset.forName("UTF-8"))
     val lines: List[String] = f.lines().toScala(LazyList).toList
     val parsed: List[Line] = lines map parseLine
     val (maxRow, maxCol) = findMaxRowCol(parsed)
     val g = Array.ofDim[Int](maxCol+1, maxRow+1)
-    markVents(g, parsed)
-    findOverlapCount(g)
+    solve(g, parsed)
   }
 
-  assert(5 == run("src/main/resources/D05TestInput.txt"))
-  assert(8060 == run("src/main/resources/D05Input.txt"))
+  assert(5 == run("src/main/resources/D05TestInput.txt", D5P1.solve))
+  assert(8060 == run("src/main/resources/D05Input.txt", D5P1.solve))
+
+  assert(12 == run("src/main/resources/D05TestInput.txt", D5P2.solve))
+  assert(21577 == run("src/main/resources/D05Input.txt", D5P2.solve))
+
 }
