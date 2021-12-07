@@ -16,7 +16,7 @@ use mutable arrays etc.
   | [D2](https://adventofcode.com/2021/day/2) | [Part 1](src/main/scala/aoc2021/D02Dive.scala)<br>[Part 2](src/main/scala/aoc2021/D02DiveRevised.scala) |
   | [D3](https://adventofcode.com/2021/day/3) | [Part 1 & 2](src/main/scala/aoc2021/D03BinaryDiagnostics.scala) |
   | [D4](https://adventofcode.com/2021/day/4) | [Part 1 & 2](src/main/scala/aoc2021/D04GiantSquid.scala) |
-  | [D5](https://adventofcode.com/2021/day/5) | [Part 1 & 2](src/main/scala/aoc2021/D04HydrothermalVenture.scala) |
+  | [D5](https://adventofcode.com/2021/day/5) | [Part 1 & 2](src/main/scala/aoc2021/D05HydrothermalVenture.scala) |
 
 </div>
 
