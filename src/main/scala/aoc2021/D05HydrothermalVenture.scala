@@ -83,6 +83,7 @@ object D05HydrothermalVenture extends App {
       )
     }
   }
+
   private def parseLine(line: String) = {
     val coors = line.split(" -> ")
     val beginCoor = coors(0).split(",")
@@ -95,6 +96,7 @@ object D05HydrothermalVenture extends App {
     g.flatten.foldLeft(0) { (acc, ele) => if (ele >= 2) acc + 1 else acc }
   }
 
+  // solution runner
   def run(filePath: String, solve: (Array[Array[Int]], List[Line]) => Int): Int = {
     val f: BufferedReader = Files.newBufferedReader(Paths.get(filePath), Charset.forName("UTF-8"))
     val lines: List[String] = f.lines().toScala(LazyList).toList
@@ -104,9 +106,11 @@ object D05HydrothermalVenture extends App {
     solve(g, parsed)
   }
 
+  // Part 1 test and problem solution
   assert(5 == run("src/main/resources/D05TestInput.txt", D5P1.solve))
   assert(8060 == run("src/main/resources/D05Input.txt", D5P1.solve))
 
+  // Part 2 test and problem solution
   assert(12 == run("src/main/resources/D05TestInput.txt", D5P2.solve))
   assert(21577 == run("src/main/resources/D05Input.txt", D5P2.solve))
 

@@ -12,11 +12,13 @@ use mutable arrays etc.
 
   | Day | Solutions |
   |:---:|:---:|
-  | [D1](https://adventofcode.com/2021/day/1) | [Part 1](src/main/scala/aoc2021/D01SonarSweep.scala)<br>[Part 2](src/main/scala/aoc2021/D01SonarSweepSlidingWindow.scala) |
-  | [D2](https://adventofcode.com/2021/day/2) | [Part 1](src/main/scala/aoc2021/D02Dive.scala)<br>[Part 2](src/main/scala/aoc2021/D02DiveRevised.scala) |
-  | [D3](https://adventofcode.com/2021/day/3) | [Part 1 & 2](src/main/scala/aoc2021/D03BinaryDiagnostics.scala) |
-  | [D4](https://adventofcode.com/2021/day/4) | [Part 1 & 2](src/main/scala/aoc2021/D04GiantSquid.scala) |
-  | [D5](https://adventofcode.com/2021/day/5) | [Part 1 & 2](src/main/scala/aoc2021/D05HydrothermalVenture.scala) |
+  | [D01](https://adventofcode.com/2021/day/1) | [Part 1](src/main/scala/aoc2021/D01SonarSweep.scala)<br>[Part 2](src/main/scala/aoc2021/D01SonarSweepSlidingWindow.scala) |
+  | [D02](https://adventofcode.com/2021/day/2) | [Part 1](src/main/scala/aoc2021/D02Dive.scala)<br>[Part 2](src/main/scala/aoc2021/D02DiveRevised.scala) |
+  | [D03](https://adventofcode.com/2021/day/3) | [Part 1 & 2](src/main/scala/aoc2021/D03BinaryDiagnostics.scala) |
+  | [D04](https://adventofcode.com/2021/day/4) | [Part 1 & 2](src/main/scala/aoc2021/D04GiantSquid.scala) |
+  | [D05](https://adventofcode.com/2021/day/5) | [Part 1 & 2](src/main/scala/aoc2021/D05HydrothermalVenture.scala) |
+  | [D06](https://adventofcode.com/2021/day/6) | [Part 1 & 2](src/main/scala/aoc2021/D05LanternDishscala) |
+  | [D07](https://adventofcode.com/2021/day/7) | [Part 1 & 2](src/main/scala/aoc2021/D07TreacheryOfWhales.scala) |
 
 </div>
 
