@@ -1,4 +1,4 @@
-# Advent Of Code :evergreen_tree: ![Last Commit on GitHub](https://img.shields.io/badge/last%20commit-2021--12--07-brightgreen)
+# Advent Of Code :evergreen_tree: ![Last Commit on GitHub](https://img.shields.io/badge/last%20commit-2021--12--08-brightgreen)
 
 [Advent of Code 2021](https://adventofcode.com/) solutions, primarily with the aim of building some Scala muscle. The 
 focus is on writing __clean__, and as close to __pure functional__ code, with zero side-effects. I will chose to use 
