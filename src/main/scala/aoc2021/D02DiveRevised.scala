@@ -1,7 +1,6 @@
 package aoc2021
 
-import aoc2021.utils.FileOperations
-
+import utils.AocFileOps
 import scala.util.{Failure, Success}
 
 object D02DiveRevised extends App {
@@ -51,14 +50,14 @@ object D02DiveRevised extends App {
 
   val start = System.currentTimeMillis()
   // - Test case -
-  FileOperations
+  AocFileOps
     .readStringInputFromFile("src/main/resources/D02P1TestInput.txt") match {
     case Success(testVector) => assert(900 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }
 
   // - Problem solution -
-  FileOperations
+  AocFileOps
     .readStringInputFromFile("src/main/resources/D02P1Input.txt") match {
     case Success(testVector) => assert(1880593125 == solve(testVector))
     case Failure(exception) => println("error parsing test input")

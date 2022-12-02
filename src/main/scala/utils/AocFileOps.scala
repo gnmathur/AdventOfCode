@@ -1,4 +1,4 @@
-package aoc2021.utils
+package utils
 
 import java.io.BufferedReader
 import java.nio.charset.Charset
@@ -6,7 +6,7 @@ import java.nio.file.{Files, Paths}
 import scala.jdk.StreamConverters._
 import scala.util.{Failure, Success, Try}
 
-object FileOperations {
+object AocFileOps {
 
   /**
    * Read lines from a file

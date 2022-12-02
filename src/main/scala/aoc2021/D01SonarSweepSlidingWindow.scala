@@ -1,7 +1,6 @@
 package aoc2021
 
-import aoc2021.utils.FileOperations
-
+import utils.AocFileOps
 import scala.util.{Failure, Success}
 
 object D01SonarSweepSlidingWindow extends App {
@@ -17,14 +16,14 @@ object D01SonarSweepSlidingWindow extends App {
   }
 
   //
-  FileOperations
+  AocFileOps
     .readIntInputFromFile("src/main/resources/D01P2TestInput.txt") match {
     case Success(testVector) => assert(5 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }
 
   // -- Problem Input --
-  FileOperations
+  AocFileOps
     .readIntInputFromFile("src/main/resources/D01P2Input.txt") match {
     case Success(testVector) => assert(1275 == solve(testVector))
     case Failure(exception) => println("error parsing test input")

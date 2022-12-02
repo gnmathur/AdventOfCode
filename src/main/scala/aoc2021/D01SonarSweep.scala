@@ -1,7 +1,6 @@
 package aoc2021
 
-import aoc2021.utils.FileOperations
-
+import utils.AocFileOps
 import scala.util.{Failure, Success}
 
 object D01SonarSweep extends App {
@@ -13,14 +12,14 @@ object D01SonarSweep extends App {
   }
 
   // -- Test Case --
-  FileOperations
-    .readIntInputFromFile("src/main/resources/D01P1TestInput.txt") match {
+  AocFileOps
+    .readIntInputFromFile("src/main/resources/2022D01P1TestInput.lst") match {
     case Success(testVector) => assert(7 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
     }
 
   // -- Problem Input --
-  FileOperations
+  AocFileOps
     .readIntInputFromFile("src/main/resources/D01P1Input.txt") match {
     case Success(testVector) => assert(1233 == solve(testVector))
     case Failure(exception) => println("error parsing test input")

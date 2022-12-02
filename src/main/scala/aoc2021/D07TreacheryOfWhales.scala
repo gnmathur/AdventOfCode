@@ -1,7 +1,6 @@
 package aoc2021
 
-import aoc2021.utils.FileOperations
-
+import utils.AocFileOps
 import scala.util.{Failure, Success}
 
 object D07TreacheryOfWhales extends App {
@@ -19,7 +18,7 @@ object D07TreacheryOfWhales extends App {
   }
 
   // Test cases for part 1 and 2
-  FileOperations
+  AocFileOps
     .readIntFromCsvFile("src/main/resources/D07TestInput.txt") match {
     case Success(testVector) =>
       assert(37 == solve(testVector, fuelCostToTargetP1))
@@ -28,7 +27,7 @@ object D07TreacheryOfWhales extends App {
   }
 
   // Problem solutions for part 1 and 2
-  FileOperations
+  AocFileOps
     .readIntFromCsvFile("src/main/resources/D07Input.txt") match {
     case Success(testVector) =>
       assert(341558 == solve(testVector, fuelCostToTargetP1))

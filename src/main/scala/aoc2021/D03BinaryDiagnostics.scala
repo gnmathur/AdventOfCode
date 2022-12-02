@@ -1,7 +1,6 @@
 package aoc2021
 
-import aoc2021.utils.FileOperations
-
+import utils.AocFileOps
 import scala.annotation.tailrec
 import scala.collection.mutable
 import scala.util.{Failure, Success}
@@ -124,7 +123,7 @@ object D03BinaryDiagnostics extends App {
   }
 
   // - Test case for part 1 -
-  FileOperations
+  AocFileOps
     .readStringInputFromFile("src/main/resources/D03TestInput.txt") match {
     case Success(testVector) => {
       val (ga, ep, powerc) = P1Solution.solve(testVector)
@@ -136,7 +135,7 @@ object D03BinaryDiagnostics extends App {
   }
 
   // - Solution for part 1-
-  FileOperations
+  AocFileOps
     .readStringInputFromFile("src/main/resources/D03Input.txt") match {
     case Success(testVector) => {
       val (ga, ep, powerc) = P1Solution.solve(testVector)
@@ -148,7 +147,7 @@ object D03BinaryDiagnostics extends App {
   }
 
   // -- Test case for part 2
-  FileOperations
+  AocFileOps
     .readStringInputFromFile("src/main/resources/D03TestInput.txt") match {
     case Success(testVector) => {
       val (o2rating, co2Rating, lifeSupportRating) = P2Solution.solve(testVector)
@@ -160,7 +159,7 @@ object D03BinaryDiagnostics extends App {
   }
 
   // -- Solution for part2
-  FileOperations
+  AocFileOps
     .readStringInputFromFile("src/main/resources/D03Input.txt") match {
     case Success(testVector) => {
       val (o2rating, co2Rating, lifeSupportRating) = P2Solution.solve(testVector)
