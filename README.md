@@ -17,19 +17,20 @@ use mutable arrays etc.
 ## 2022
   | Day | Solutions |
   |:---:|:---:|
-  | [D01](https://adventofcode.com/2021/day/1) | [Part 1](src/main/scala/aoc2022/D01CalorieCounting.scala)<br>[Part 2](src/main/scala/aoc2022/D01CalorieCounting.scala) |
+  | [01](https://adventofcode.com/2022/day/2) | [Part 1 & 2](src/main/scala/aoc2022/D02RockPaperScissors.scala) |
+  | [02](https://adventofcode.com/2022/day/2) | [Part 1 & 2](src/main/scala/aoc2022/D01CalorieCounting.scala) |
   
 
 ## 2021
   | Day | Solutions |
   |:---:|:---:|
-  | [D01](https://adventofcode.com/2021/day/1) | [Part 1](src/main/scala/aoc2021/D01SonarSweep.scala)<br>[Part 2](src/main/scala/aoc2021/D01SonarSweepSlidingWindow.scala) |
-  | [D02](https://adventofcode.com/2021/day/2) | [Part 1](src/main/scala/aoc2021/D02Dive.scala)<br>[Part 2](src/main/scala/aoc2021/D02DiveRevised.scala) |
-  | [D03](https://adventofcode.com/2021/day/3) | [Part 1 & 2](src/main/scala/aoc2021/D03BinaryDiagnostics.scala) |
-  | [D04](https://adventofcode.com/2021/day/4) | [Part 1 & 2](src/main/scala/aoc2021/D04GiantSquid.scala) |
-  | [D05](https://adventofcode.com/2021/day/5) | [Part 1 & 2](src/main/scala/aoc2021/D05HydrothermalVenture.scala) |
-  | [D06](https://adventofcode.com/2021/day/6) | [Part 1 & 2](src/main/scala/aoc2021/D06LanternFish.scala) |
-  | [D07](https://adventofcode.com/2021/day/7) | [Part 1 & 2](src/main/scala/aoc2021/D07TreacheryOfWhales.scala) |
+  | [01](https://adventofcode.com/2021/day/1) | [Part 1](src/main/scala/aoc2021/D01SonarSweep.scala)<br>[Part 2](src/main/scala/aoc2021/D01SonarSweepSlidingWindow.scala) |
+  | [02](https://adventofcode.com/2021/day/2) | [Part 1](src/main/scala/aoc2021/D02Dive.scala)<br>[Part 2](src/main/scala/aoc2021/D02DiveRevised.scala) |
+  | [03](https://adventofcode.com/2021/day/3) | [Part 1 & 2](src/main/scala/aoc2021/D03BinaryDiagnostics.scala) |
+  | [04](https://adventofcode.com/2021/day/4) | [Part 1 & 2](src/main/scala/aoc2021/D04GiantSquid.scala) |
+  | [05](https://adventofcode.com/2021/day/5) | [Part 1 & 2](src/main/scala/aoc2021/D05HydrothermalVenture.scala) |
+  | [06](https://adventofcode.com/2021/day/6) | [Part 1 & 2](src/main/scala/aoc2021/D06LanternFish.scala) |
+  | [07](https://adventofcode.com/2021/day/7) | [Part 1 & 2](src/main/scala/aoc2021/D07TreacheryOfWhales.scala) |
 
 All credit to the authors for the problems. They are reproduced in this repository merely to have a description proximate to the solutions
 
