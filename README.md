@@ -1,6 +1,6 @@
 # Advent Of Code :evergreen_tree:
 
-[![Scala CI](https://github.com/gnmathur/AdventOfCode/actions/workflows/scala.yml/badge.svg)](https://github.com/gnmathur/AdventOfCode/actions/workflows/scala.yml)
+[![Scala CI](https://github.com/gnmathur/AdventOfCode/actions/workflows/scala.yml/badge.svg?branch=main)](https://github.com/gnmathur/AdventOfCode/actions/workflows/scala.yml)
 
 [Advent of Code 2021](https://adventofcode.com/) solutions, primarily with the aim of building some Scala muscle. The 
 focus is on writing __clean__, and as close to __pure functional__ code, with zero side-effects. I will chose to use 
