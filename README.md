@@ -3,11 +3,8 @@
 [![Scala CI](https://github.com/gnmathur/AdventOfCode/actions/workflows/scala.yml/badge.svg?branch=main)](https://github.com/gnmathur/AdventOfCode/actions/workflows/scala.yml)
 
 [Advent of Code](https://adventofcode.com/) solutions, primarily with the aim of building some Scala muscle. The 
-focus is on writing __clean__, and as close to __pure functional__ code, with zero side-effects. I will chose to use 
-mutable state where its pragmatic and a pure functional solution requires too much gymnastics and/or has a chance of 
-making the code too non-performant. A lot of solutions therefore deliberately introduce explicit types, and instead 
-of aiming to be super-concise, break the problem down into cleaner functions that build to a solution, and sometimes 
-use mutable arrays etc.
+focus is on writing primarily __clean__, __readable__ code, and second comes writing code in as close to a __pure functional__ style as possible, with zero side-effects. I will use mutable state where its pragmatic and where a pure functional solution requires too much gymnastics and/or has a chance of 
+making the code too non-performant. A lot of solutions therefore deliberately introduce explicit types, and instead of aiming to be super-concise, break the problem down into cleaner functions that build to a solution, and sometimes use mutable arrays etc.
 
 ## Years
 
