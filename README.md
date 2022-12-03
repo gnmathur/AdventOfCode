@@ -17,8 +17,9 @@ use mutable arrays etc.
 ## 2022
   | Day | Solutions |
   |:---:|:---:|
-  | [01](https://adventofcode.com/2022/day/2) | [Part 1 & 2](src/main/scala/aoc2022/D02RockPaperScissors.scala) |
-  | [02](https://adventofcode.com/2022/day/2) | [Part 1 & 2](src/main/scala/aoc2022/D01CalorieCounting.scala) |
+  | [01](https://adventofcode.com/2022/day/1) | [Part 1 & 2](src/main/scala/aoc2022/D01CalorieCounting.scala) |
+  | [02](https://adventofcode.com/2022/day/2) | [Part 1 & 2](src/main/scala/aoc2022/D01RockPaperScissors.scala) |
+  | [03](https://adventofcode.com/2022/day/3) | [Part 1 & 2](src/main/scala/aoc2022/D01RucksackReorganization.scala) |
   
 
 ## 2021
