@@ -16,7 +16,7 @@ object D03RucksackReorganization extends App {
 
     rucksacksInGroupsOf3.foldLeft(0L) { (acc, groupOf3Rucksacks) =>
       val unqItemsInEach = groupOf3Rucksacks.map(_.toCharArray.toSet)
-      val badgeItemType = unqItemsInEach.foldLeft(unqItemsInEach.head) { (acc, s) => acc.intersect(s) }.toSeq
+      val badgeItemType = unqItemsInEach.foldLeft(unqItemsInEach.head) { (acc, s) => acc.intersect(s) }
       acc + charValue(badgeItemType.head)
     }
   }
@@ -27,7 +27,7 @@ object D03RucksackReorganization extends App {
       val (leftCompartment, rightCompartment) = rucksackArr.splitAt(rucksackArr.length / 2)
       val leftCSet = leftCompartment.toSet
       val rightCSet = rightCompartment.toSet
-      val commonBetweenCompartments = leftCSet.intersect(rightCSet).toSeq
+      val commonBetweenCompartments = leftCSet.intersect(rightCSet)
       acc + charValue(commonBetweenCompartments.head)
     }
   }
