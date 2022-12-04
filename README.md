@@ -17,6 +17,7 @@ making the code too non-performant. A lot of solutions therefore deliberately in
   | [01](https://adventofcode.com/2022/day/1) | [Part 1 & 2](src/main/scala/aoc2022/D01CalorieCounting.scala) |
   | [02](https://adventofcode.com/2022/day/2) | [Part 1 & 2](src/main/scala/aoc2022/D02RockPaperScissors.scala) |
   | [03](https://adventofcode.com/2022/day/3) | [Part 1 & 2](src/main/scala/aoc2022/D03RucksackReorganization.scala) |
+  | [04](https://adventofcode.com/2022/day/4) | [Part 1](src/main/scala/aoc2022/D04CampCleanup.scala) |
   
 
 ## 2021
