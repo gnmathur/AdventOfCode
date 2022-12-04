@@ -1,8 +1,8 @@
 package aoc2022
 
-import aoc2022.D02RockPaperScissors.Score
 import utils.AocFileOps
 
+import scala.collection.immutable.BitSet
 import scala.util.{Failure, Success}
 
 object D02RockPaperScissors extends App {
@@ -73,10 +73,13 @@ object D02RockPaperScissors extends App {
 
   // Solve Part 1 and 2
   AocFileOps
-    .readStringInputFromFile("src/main/resources/aoc2022/2022D02P1Input.lst") match {
+    .readStringInputFromFile("src/main/resources/aoc2022/2022D02Input.lst") match {
     case Success(testVector) =>
       assert(Score(13565) == solvePart1(testVector))
       assert(Score(12424) == solvePart2(testVector))
     case Failure(exception) => println(s"Error parsing test input (error: ${exception})")
   }
+
+  val order = Seq("", "B X", "C Y", "A Z", "A X", "B Y", "C Z", "C X", "A Y", "B Z").zipWithIndex.toMap
+  println(order)
 }

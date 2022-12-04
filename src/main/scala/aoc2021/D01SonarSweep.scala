@@ -13,7 +13,7 @@ object D01SonarSweep extends App {
 
   // -- Test Case --
   AocFileOps
-    .readIntInputFromFile("src/main/resources/2022D01P1TestInput.lst") match {
+    .readIntInputFromFile("src/main/resources/2022D01TestInput.lst") match {
     case Success(testVector) => assert(7 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
     }

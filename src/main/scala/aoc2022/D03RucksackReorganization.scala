@@ -45,7 +45,7 @@ object D03RucksackReorganization extends App {
 
   /// Solve Part 1 and 2
   AocFileOps
-    .readStringInputFromFile("src/main/resources/aoc2022/2022D03P1Input.lst") match {
+    .readStringInputFromFile("src/main/resources/aoc2022/2022D03Input.lst") match {
     case Success(testVector) =>
       assert(7878 == solvePart1(testVector))
       assert(2760 == solvePart2(testVector))
