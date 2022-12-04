@@ -4,7 +4,7 @@ import utils.AocFileOps
 
 import scala.util.{Failure, Success}
 
-object Day04CampCleanup extends App {
+object D04CampCleanup extends App {
   def solvePart1(input: List[String]): Long = {
     input.foldLeft(0L) { (acc, line) =>
       val parts = line.split(",")
