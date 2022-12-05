@@ -14,10 +14,22 @@ object AocFileOps {
    * @param filePath file to read
    * @return A collection with all the lines read
    */
-  def readStringInputFromFile(filePath: String) : Try[List[String]] = {
+  def readInputAsStringList(filePath: String) : Try[List[String]] = {
     Try {
       val f: BufferedReader = Files.newBufferedReader(Paths.get(filePath), Charset.forName("UTF-8"))
       f.lines().toScala(Iterator).toList
+    }
+  }
+
+  /**
+   * Read lines from a file as a single String
+   *
+   * @param filePath file to read
+   * @return A String with the file contents
+   */
+  def readInputAsString(filePath: String): Try[String] = {
+    Try {
+      Files.readString(Paths.get(filePath), Charset.forName("UTF-8"))
     }
   }
 
@@ -28,7 +40,7 @@ object AocFileOps {
    * @return A List of parsed integer values
    */
   def readIntInputFromFile(filePath: String): Try[List[Int]] = {
-    readStringInputFromFile(filePath) match {
+    readInputAsStringList(filePath) match {
       case Success(value) => Try {
         value.map {
           line => Integer.parseInt(line)

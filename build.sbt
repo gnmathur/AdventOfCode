@@ -1,4 +1,4 @@
-name := "2021"
+name := "AdventOfCode"
 
 version := "0.1"
 

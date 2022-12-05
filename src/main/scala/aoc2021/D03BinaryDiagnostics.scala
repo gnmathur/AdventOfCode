@@ -124,7 +124,7 @@ object D03BinaryDiagnostics extends App {
 
   // - Test case for part 1 -
   AocFileOps
-    .readStringInputFromFile("src/main/resources/D03TestInput.txt") match {
+    .readInputAsStringList("src/main/resources/D03TestInput.txt") match {
     case Success(testVector) => {
       val (ga, ep, powerc) = P1Solution.solve(testVector)
       assert(22 == ga)
@@ -136,7 +136,7 @@ object D03BinaryDiagnostics extends App {
 
   // - Solution for part 1-
   AocFileOps
-    .readStringInputFromFile("src/main/resources/D03Input.txt") match {
+    .readInputAsStringList("src/main/resources/D03Input.txt") match {
     case Success(testVector) => {
       val (ga, ep, powerc) = P1Solution.solve(testVector)
       assert(1616 == ga)
@@ -148,7 +148,7 @@ object D03BinaryDiagnostics extends App {
 
   // -- Test case for part 2
   AocFileOps
-    .readStringInputFromFile("src/main/resources/D03TestInput.txt") match {
+    .readInputAsStringList("src/main/resources/D03TestInput.txt") match {
     case Success(testVector) => {
       val (o2rating, co2Rating, lifeSupportRating) = P2Solution.solve(testVector)
       assert(23 == o2rating)
@@ -160,7 +160,7 @@ object D03BinaryDiagnostics extends App {
 
   // -- Solution for part2
   AocFileOps
-    .readStringInputFromFile("src/main/resources/D03Input.txt") match {
+    .readInputAsStringList("src/main/resources/D03Input.txt") match {
     case Success(testVector) => {
       val (o2rating, co2Rating, lifeSupportRating) = P2Solution.solve(testVector)
       assert(1599 == o2rating)

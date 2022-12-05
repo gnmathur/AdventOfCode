@@ -50,14 +50,14 @@ object D02Dive extends App {
 
   // - Test case -
   AocFileOps
-    .readStringInputFromFile("src/main/resources/D02P1TestInput.txt") match {
+    .readInputAsStringList("src/main/resources/D02P1TestInput.txt") match {
     case Success(testVector) => assert(150 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }
 
   // - Problem solution -
   AocFileOps
-    .readStringInputFromFile("src/main/resources/D02P1Input.txt") match {
+    .readInputAsStringList("src/main/resources/D02P1Input.txt") match {
     case Success(testVector) => assert(1507611 == solve(testVector))
     case Failure(exception) => println("error parsing test input")
   }

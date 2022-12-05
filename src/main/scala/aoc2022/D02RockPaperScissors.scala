@@ -73,7 +73,7 @@ object D02RockPaperScissors extends App {
 
   // Solve Part 1 and 2
   AocFileOps
-    .readStringInputFromFile("src/main/resources/aoc2022/2022D02Input.lst") match {
+    .readInputAsStringList("src/main/resources/aoc2022/2022D02Input.lst") match {
     case Success(testVector) =>
       assert(Score(13565) == solvePart1(testVector))
       assert(Score(12424) == solvePart2(testVector))
