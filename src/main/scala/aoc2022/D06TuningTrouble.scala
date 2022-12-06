@@ -10,9 +10,8 @@ object D06TuningTrouble extends App {
       .toCharArray
       .zip(1 to(input.length))
       .sliding(nDistinctChars)
-      .filter { arr: Array[(Char, Int)] =>
-        arr.map(_._1).toSet.size == nDistinctChars
-      }.toList
+      .filter { _.map(_._1).toSet.size == nDistinctChars }
+      .toList
     quadGroupWithCharIndices.head(nDistinctChars-1)._2
   }
 
