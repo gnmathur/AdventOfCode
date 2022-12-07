@@ -20,6 +20,7 @@ making the code too non-performant. A lot of solutions therefore deliberately in
   | [04](https://adventofcode.com/2022/day/4) | [Part 1 & 2](src/main/scala/aoc2022/D04CampCleanup.scala) |
   | [05](https://adventofcode.com/2022/day/5) | [Part 1 & 2](src/main/scala/aoc2022/D05SupplyStacks.scala) |
   | [06](https://adventofcode.com/2022/day/6) | [Part 1 & 2](src/main/scala/aoc2022/D06TuningTrouble.scala) |
+  | [07](https://adventofcode.com/2022/day/7) | [Part 1 & 2](src/main/scala/aoc2022/D07NoSpaceLeftOnDevice.scala) |
   
 
 ## 2021
