@@ -13,7 +13,7 @@ object D08TreetopTreeHouse extends App {
   type Grid = List[List[Int]]
   def parse(input: List[String]): Grid = {
     input.foldLeft(List[List[Int]]()) { (acc, line) =>
-      acc :+ line.toCharArray.map(_.toInt).toList
+      acc :+ line.toCharArray.map(_.asDigit).toList
     }
   }
 
@@ -30,31 +30,12 @@ object D08TreetopTreeHouse extends App {
   def scenicCounts(r: Int, c: Int, R: Int, C: Int, grid: Grid): Long = {
     val tVal: Int = grid(r)(c)
 
-    val left = (c-1 to 0 by -1).foldLeft((0, false)) { (acc: (Int, Boolean), idx) =>
-      val diff = tVal - grid(r)(idx)
-      if (!acc._2) {
-        if (tVal - grid(r)(idx) > 0) (acc._1+1, false) else (acc._1+1, true)
-      } else (acc)
-    }._1
-    val right = (c + 1 until R).foldLeft((0, false)) { (acc: (Int, Boolean), idx) =>
-      val diff = tVal - grid(r)(idx)
-      if (!acc._2) {
-        if (tVal - grid(r)(idx) > 0) (acc._1 + 1, false) else (acc._1 + 1, true)
-      } else (acc)
-    }._1
-    val top = (r - 1 to 0 by -1).foldLeft((0, false)) { (acc: (Int, Boolean), idx) =>
-      val diff = tVal - grid(idx)(c)
-      if (!acc._2) {
-        if (tVal - grid(idx)(c) > 0) (acc._1 + 1, false) else (acc._1 + 1, true)
-      } else (acc)
-    }._1
-    val bottom = (r + 1 until R).foldLeft((0, false)) { (acc: (Int, Boolean), idx) =>
-      val diff = tVal - grid(idx)(c)
-      if (!acc._2) {
-        if (tVal - grid(idx)(c) > 0) (acc._1 + 1, false) else (acc._1 + 1, true)
-      } else (acc)
-    }._1
-    val result = top * bottom * left * right
+    val nVisibleToLeft = c - (c-1 to 0 by -1).find(grid(r)(_) >= tVal).getOrElse(0)
+    val nVisibleToRight = (c + 1 until C).find(grid(r)(_) >= tVal).getOrElse(R-1) - c
+    val nVisibleUp = r - (r-1 to 0 by -1).find(grid(_)(c) >= tVal).getOrElse(0)
+    val nVisibleDown = (r + 1 until R).find(grid(_)(c) >= tVal).getOrElse(C - 1) - r
+
+    val result = nVisibleToLeft * nVisibleToRight * nVisibleUp * nVisibleDown
     result
   }
 
@@ -82,6 +63,7 @@ object D08TreetopTreeHouse extends App {
     r.max
   }
 
+  // Test cases for part 1 and 2
   val input = List(
     "30373",
     "25512",
@@ -92,10 +74,12 @@ object D08TreetopTreeHouse extends App {
   assert(21 == solvePart1(input))
   assert(8 == solvePart2(input))
 
+  // Solution for part 1 and 2
   AocFileOps
     .readInputAsStringList("src/main/resources/aoc2022/2022D08Input.lst") match {
     case Success(input) =>
       assert(1681 == solvePart1(input))
+      println(solvePart2(input))
       assert(201684 == solvePart2(input))
     case Failure(exception) => println(s"Error parsing test input (error: ${exception})")
   }
