@@ -29,13 +29,12 @@ object D09RopeBridge extends App {
 
   def solve(input: List[String], ropeLength: Int): Int = {
     val l = parse(input)
-    val visited = mutable.Set[Coor]()
 
-    val foldedRope =
-      Vector(HCoor(0, 0)) ++  // Head
-      (1 until ropeLength).foldLeft(Vector[Coor]()) { (acc, _) => acc :+ TCoor(0, 0) } // Tail of length ropeLength - 1
+    val foldedRope: Vector[Coor] =
+      Vector(HCoor(0, 0)) ++   // Head knot
+        Vector.fill(ropeLength-1)(TCoor(0, 0)) // Rest of the knots
 
-    l.foldLeft(foldedRope) { (rope, headDisplacement) =>
+    val (_, visited) = l.foldLeft(foldedRope, Set[Coor]()) { case ((rope, visited), headDisplacement) =>
       val hLocation = rope.head.move(headDisplacement._1, headDisplacement._2)
 
       val movedRope = rope.tail.scanLeft(hLocation) { (prevKnotLoc: Coor, thisKnotLoc: Coor) =>
@@ -53,8 +52,7 @@ object D09RopeBridge extends App {
         }
         tLocation
       }
-      visited.add(movedRope.last)
-      movedRope
+      (movedRope, visited + rope.last)
     }
     visited.size
   }
