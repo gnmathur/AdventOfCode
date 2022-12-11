@@ -21,7 +21,7 @@ making the code too non-performant. A lot of solutions therefore deliberately in
   | [05](https://adventofcode.com/2022/day/5) | [Part 1 & 2](src/main/scala/aoc2022/D05SupplyStacks.scala) |
   | [06](https://adventofcode.com/2022/day/6) | [Part 1 & 2](src/main/scala/aoc2022/D06TuningTrouble.scala) |
   | [07](https://adventofcode.com/2022/day/7) | [Part 1 & 2](src/main/scala/aoc2022/D07NoSpaceLeftOnDevice.scala) |
-  | [08](https://adventofcode.com/2022/day/8) | [Part 1 & 2](src/main/scala/aoc2022/D08TreeTopTreeHouse.scala) |
+  | [08](https://adventofcode.com/2022/day/8) | [Part 1 & 2](src/main/scala/aoc2022/D08TreetopTreeHouse.scala) |
   | [09](https://adventofcode.com/2022/day/9) | [Part 1 & 2](src/main/scala/aoc2022/D09RopeBridge.scala) |
   | [10](https://adventofcode.com/2022/day/10) | [Part 1](src/main/scala/aoc2022/D10CathodeRayTube.scala) |
 
